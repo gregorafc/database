@@ -22,6 +22,11 @@ class Database
     @database[file_name.to_sym] = content
     File.open(file_name, 'w') { |file| file.write(content)}
   end
+
+  def []=(file_name, content)
+    @database[file_name.to_sym] = content
+    File.open(file_name, 'w') { |file| file.write(content)}
+  end
  
 end
 
@@ -31,7 +36,7 @@ db = Database.new
 p db.keys
 p db.get("1.txt")
 p db["1.txt"]
-db.set("secret.txt", "Facebook password")
+db["secret.txt"] = "Facebook password"
 p db["secret.txt"]
 
 
