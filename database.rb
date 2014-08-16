@@ -14,6 +14,9 @@ class Database
     @database[file_name.to_sym]
   end
 
+  def [](file_name)
+    @database[file_name.to_sym]
+  end
  
 end
 
@@ -22,3 +25,4 @@ db = Database.new
 
 p db.keys
 p db.get("1.txt")
+p db["1.txt"]
