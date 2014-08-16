@@ -9,6 +9,11 @@ class Database
   def keys
     @database.keys
   end
+
+  def get(file_name)
+    @database[file_name.to_sym]
+  end
+
  
 end
 
@@ -16,3 +21,4 @@ end
 db = Database.new
 
 p db.keys
+p db.get("1.txt")
