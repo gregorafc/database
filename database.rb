@@ -1,9 +1,10 @@
 class Database
   include Enumerable
 
-  def initialize
+  def initialize(database_path)
     @database = Hash.new
-    Dir.entries('testdir').sort[2..-1].each { |key| @database[key.to_sym] = File.read("testdir/#{key}")}
+    @database_path = database_path
+    Dir.entries('testdir').sort[2..-1].each { |key| @database[key.to_sym] = File.read("#{@database_path}/#{key}")}
   end
 
   def keys
@@ -31,7 +32,7 @@ class Database
 end
 
 
-db = Database.new
+db = Database.new("testdir")
 
 p db.keys
 p db.get("1.txt")
