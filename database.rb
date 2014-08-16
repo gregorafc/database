@@ -17,6 +17,9 @@ class Database
   def [](file_name)
     @database[file_name.to_sym]
   end
+
+  def set(file_name, content)
+    @database[file_name.to_sym] = content
  
 end
 
@@ -26,3 +29,7 @@ db = Database.new
 p db.keys
 p db.get("1.txt")
 p db["1.txt"]
+db.set("secret.txt", "Facebook password")
+p db["secret.txt"]
+
+
