@@ -20,6 +20,8 @@ class Database
 
   def set(file_name, content)
     @database[file_name.to_sym] = content
+    File.open(file_name, 'w') { |file| file.write(content)}
+  end
  
 end
 
