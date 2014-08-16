@@ -47,17 +47,30 @@ class Database
     @database[file_name.to_sym] = content
     File.open("#{@database_path}/#{file_name}", 'w') { |file| file.write(content)}
   end
+
+  def each
+    keys.each do |key|
+      p "#{key} has content: #{@database[key]}"
+    end
+  end
  
 end
 
 
 db = Database.new("testdir")
 
-p db["1.txt"]
+#p db["1.txt"]
 #db["secret.txt"] = "Facebook password"
 #p db["secret.txt"]
 #p db["4.txt"]
-p db["test"]
+#p db["test"]
+
+p db.each
+
+
+
+
+
 
 
 
