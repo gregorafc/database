@@ -16,7 +16,11 @@ class Database
   end
 
   def [](file_name)
-    @database[file_name.to_sym]
+    if @database[file_name.to_sym] == nil
+      return "Non existing file"
+    else
+      @database[file_name.to_sym]
+    end
   end
 
   def set(file_name, content)
@@ -36,7 +40,8 @@ db = Database.new("testdir")
 
 p db.keys
 p db["1.txt"]
-db["secret.txt"] = "Facebook password"
-p db["secret.txt"]
+#db["secret.txt"] = "Facebook password"
+#p db["secret.txt"]
+p db["4.txt"]
 
 
